@@ -2,10 +2,10 @@
 
 
 # Skills are used here:
--(COVID Data Project Exploration.sql:
+- (COVID Data Project Exploration.sql: 
   Joins, CTE's, Windows Functions, Aggregate Functions, Converting Data Types.)
 
-- (Nashville Housing Data Cleaning.xlsx:
+- (Nashville Housing Data Cleaning.xlsx: 
    Update,Remove Duplicate, Changes, set value etc)
 
 # Programs
