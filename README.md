@@ -2,11 +2,11 @@
 
 
 # Skills are used here:
-(COVID Project - Data Exploration.sql.sql:
+(COVID Data Project Exploration.sql:
 - Joins, CTE's, Windows Functions, Aggregate Functions, Converting Data Types.)
 
 # Programs
-- [COVID Project - Data Exploration.sql.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/COVID%20Project%20-%20Data%20Exploration.sql.sql)
+- [COVID Data Project Exploration.sql.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/COVID%20Project%20-%20Data%20Exploration.sql.sql)
 - [CovidDeaths.csv](https://github.com/mahedei/Portfolio-Projects/blob/main/CovidDeaths.csv)
 - [CovidVaccinations.csv](https://github.com/mahedei/Portfolio-Projects/blob/main/CovidVaccinations.csv)
 
