@@ -5,7 +5,7 @@
 - (COVID Data Project Exploration.sql: 
   Joins, CTE's, Windows Functions, Aggregate Functions, Converting Data Types.)
 
-- (Nashville Housing Data Cleaning.xlsx: 
+- (Nashville Housing Data Cleaning.sql: 
    Update,Remove Duplicate, Changes, set value etc)
 
 # Programs
