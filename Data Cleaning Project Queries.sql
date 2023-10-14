@@ -2,26 +2,27 @@
 ---- Cleaning Data in SQL Queries.
 
 Select *
-From home.dbo.NashvilleHousing;
+From project. .NashvilleHousing;
 
 
 -- Standardize Date Format.
 
 
 Select saleDate, CONVERT(Date,SaleDate) as saleDateConverted
-From home.dbo.NashvilleHousing;
+From project. .NashvilleHousing;
 
-Update NashvilleHousing
+Update project. .NashvilleHousing
 SET SaleDate = CONVERT(Date,SaleDate);
 
 
 -- If it doesn't Update then.
 
-ALTER TABLE NashvilleHousing
+ALTER TABLE project. .NashvilleHousing
 Add SaleDateConverted Date;
 
-Update NashvilleHousing
+Update project. .NashvilleHousing
 SET SaleDateConverted = CONVERT(Date,SaleDate);
+
 
 
 
