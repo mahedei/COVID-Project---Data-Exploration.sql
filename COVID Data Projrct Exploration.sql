@@ -56,11 +56,18 @@ ORDER BY
 -- Total Cases vs Population.
 -- Showing that percentage of population infected with Covid.
 
-Select 
-      Location, date, Population, total_cases,  (total_cases/population)*100 as PercentPopulationInfected
-From 
-      b9.coviddeaths c 
-order by 1,2;
+SELECT
+    Location,
+    date,
+    TRY_CAST(Population AS FLOAT) AS Population,
+    TRY_CAST(total_cases AS FLOAT) AS total_cases,
+    CASE
+        WHEN TRY_CAST(Population AS FLOAT) = 0 THEN 0
+        ELSE (TRY_CAST(total_cases AS FLOAT) * 100.0) / NULLIF(TRY_CAST(Population AS FLOAT), 0)
+    END AS PercentPopulationInfected
+FROM
+    projects. .coviddeaths
+ORDER BY 1, 2;
 
 
 -- Countries with Highest Infection Rate compared to Population.
