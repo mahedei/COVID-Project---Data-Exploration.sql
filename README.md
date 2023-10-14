@@ -14,6 +14,7 @@
 - [CovidVaccinations.csv](https://github.com/mahedei/Portfolio-Projects/blob/main/CovidVaccinations.csv)
 - [Data Cleaning Project Queries.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/Data%20Cleaning%20Project%20Queries.sql)
 - [NashvilleHousing .xls](https://github.com/mahedei/Portfolio-Projects/blob/main/NashvilleHousing%20.xls)
+- [TablueProjectQueries.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/TablueProjectQueries.sql)
 
 
 # Connect With ME
