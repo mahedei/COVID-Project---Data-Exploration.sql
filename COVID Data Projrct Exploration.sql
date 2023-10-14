@@ -35,16 +35,22 @@ order by 1,2;
 
 
 
--- Total Cases vs Total Deaths.
--- Shows likelihood of dying if you contract covid in your country.
+-- Total Cases vs Total Deaths
+-- Shows likelihood of dying if you contract covid in your country
 
-Select 
-      Location, date, total_cases,total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
-From 
-      b9.coviddeaths c 
-      ---- Where location like '%states%'
----- and continent is not null 
-order by 1,2;
+SELECT
+    Location,
+    date,
+    TRY_CAST(total_cases AS float) AS total_cases,
+    TRY_CAST(total_deaths AS float) AS total_deaths,
+    CASE 
+        WHEN TRY_CAST(total_cases AS float) = 0 THEN NULL
+        ELSE (TRY_CAST(total_deaths AS float) / TRY_CAST(total_cases AS float)) * 100
+    END AS DeathPercentage
+FROM
+    projects. .CovidDeaths
+ORDER BY
+    1, 2;
 
 
 -- Total Cases vs Population.
