@@ -72,14 +72,21 @@ ORDER BY 1, 2;
 
 -- Countries with Highest Infection Rate compared to Population.
 
-Select 
-      Location, Population, MAX(total_cases) as HighestInfectionCount,  Max((total_cases/population))*100 as PercentPopulationInfected
-From 
-      b9.coviddeaths c 
-Group by 
-      Location, Population
-order by 
-       PercentPopulationInfected desc;
+SELECT
+    Location,
+    Population,
+    MAX(CAST(total_cases AS BIGINT)) AS HighestInfectionCount,
+    CASE
+        WHEN CAST(Population AS BIGINT) = 0 THEN 0 -- To avoid divide by zero
+        ELSE MAX(CAST(total_cases AS BIGINT)) * 100.0 / CAST(Population AS BIGINT)
+    END AS PercentPopulationInfected
+FROM
+    projects. .coviddeaths
+GROUP BY
+    Location, Population
+ORDER BY
+    PercentPopulationInfected DESC;
+
       
       
       
