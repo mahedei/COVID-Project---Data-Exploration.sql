@@ -8,7 +8,7 @@
 
 Select *
 From 
-     b9.coviddeaths c
+     project. .CovidDeaths
 Where 
      continent is not null 
 order by 3,4;
@@ -16,11 +16,10 @@ order by 3,4;
 
 Select *
 From 
-     b9.covidvaccinations v
+     project. .covidvaccinations
 Where 
      continent is not null 
 order by 3,4;
-
 
 ----- Select Data going to starting with.
 
@@ -28,7 +27,7 @@ order by 3,4;
 Select 
       Location, date, total_cases, new_cases, total_deaths, population
 From 
-      b9.coviddeaths c 
+       project. .CovidDeaths
 Where 
       continent is not null 
 order by 1,2;
@@ -47,7 +46,7 @@ SELECT
         ELSE (TRY_CAST(total_deaths AS float) / TRY_CAST(total_cases AS float)) * 100
     END AS DeathPercentage
 FROM
-    projects. .CovidDeaths
+    project. .CovidDeaths
 ORDER BY
     1, 2;
 
@@ -66,7 +65,7 @@ SELECT
         ELSE (TRY_CAST(total_cases AS FLOAT) * 100.0) / NULLIF(TRY_CAST(Population AS FLOAT), 0)
     END AS PercentPopulationInfected
 FROM
-    projects. .coviddeaths
+    project. .coviddeaths
 ORDER BY 1, 2;
 
 
@@ -81,11 +80,12 @@ SELECT
         ELSE MAX(CAST(total_cases AS BIGINT)) * 100.0 / CAST(Population AS BIGINT)
     END AS PercentPopulationInfected
 FROM
-    projects. .coviddeaths
+    project. .coviddeaths
 GROUP BY
     Location, Population
 ORDER BY
     PercentPopulationInfected DESC;
+
 
       
       
@@ -95,7 +95,7 @@ ORDER BY
 Select 
      Location, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From 
-     projects. .coviddeaths
+     project. .coviddeaths
 Where 
      continent is not null 
 Group by 
@@ -108,10 +108,24 @@ order by
 
 -- Showing contintents with the highest death count per population.
 
+
+UPDATE project. .CovidDeaths
+SET continent = CASE
+    WHEN location = 'Africa' THEN 'Africa'
+    WHEN location = 'Asia' THEN 'Asia'
+    ELSE continent
+END
+WHERE (location = 'Africa' OR location = 'Asia') AND continent = '';
+
+
+select continent, location
+from project. .CovidDeaths;
+
+
 select
       continent, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From 
-      projects. .coviddeaths
+      project. .coviddeaths
 Where 
       continent is not null 
 Group by 
@@ -128,25 +142,27 @@ Select
       SUM(CAST(new_deaths as INT)) as total_deaths, 
       SUM(CAST(new_deaths as INT)) * 100.0 / SUM(CAST(new_cases as INT)) as DeathPercentage
 From 
-      projects. .coviddeaths
+      project. .coviddeaths
 where 
       continent is not null;
+
 
 
 
 -- Total Population vs Vaccinations.
 
 Select c.continent, c.location, c.date, c.population, v.new_vaccinations
-,sum(CAST(v.new_vaccinations AS SIGNED)) over (partition by c.location order by c.location,c.date) as RollingPeopleVaccinated
+,sum(CAST(v.new_vaccinations AS int)) over (partition by c.location order by c.location,c.date) as RollingPeopleVaccinated
 from 
-    b9.coviddeaths as c 
+    project. .coviddeaths as c 
 join
-    b9.covidvaccinations as v
+    project. .covidvaccinations as v
     on c.location = v.location 
     and c.date = v.date
 where 
       c.continent is not null
 order by 2,3;
+
 
 
 
