@@ -3,7 +3,7 @@
 
 # Skills are used here:
 - COVID Data Project Exploration.sql : 
-  Joins, CTE's, Windows Functions, Aggregate Functions, Converting Data Types.
+  Joins, Windows Functions, Aggregate Functions, Converting Data Types.
 
 - Data Cleaning Project Queries.sql : 
    Update,Remove Duplicate, Changes, set value etc.
@@ -13,7 +13,7 @@
 - [CovidDeaths.csv](https://github.com/mahedei/Portfolio-Projects/blob/main/CovidDeaths.csv)
 - [CovidVaccinations.csv](https://github.com/mahedei/Portfolio-Projects/blob/main/CovidVaccinations.csv)
 - [Data Cleaning Project Queries.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/Data%20Cleaning%20Project%20Queries.sql)
-- [Nashville Housing Data Cleaning.xlsx](https://github.com/mahedei/Portfolio-Projects/blob/main/Nashville%20Housing%20Data%20Cleaning.xlsx)
+- [NashvilleHousing .xls](https://github.com/mahedei/Portfolio-Projects/blob/main/NashvilleHousing%20.xls)
 
 
 # Connect With ME
