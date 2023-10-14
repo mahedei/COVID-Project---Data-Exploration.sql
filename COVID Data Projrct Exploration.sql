@@ -35,7 +35,7 @@ order by 1,2;
 
 
 
--- Total Cases vs Total Deaths and DeathPercentage
+-- Total Cases vs Total Death and Deathspercentage.
 
 SELECT
     Location,
@@ -50,6 +50,7 @@ FROM
     projects. .CovidDeaths
 ORDER BY
     1, 2;
+
 
 
 -- Total Cases vs Population.
