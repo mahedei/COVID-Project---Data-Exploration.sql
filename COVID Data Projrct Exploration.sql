@@ -93,9 +93,9 @@ ORDER BY
 -- Countries with Highest Death Count per Population.
 
 Select 
-     Location, MAX(cast(Total_deaths as SIGNED)) as TotalDeathCount
+     Location, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From 
-     b9.coviddeaths c
+     projects. .coviddeaths
 Where 
      continent is not null 
 Group by 
@@ -109,26 +109,29 @@ order by
 -- Showing contintents with the highest death count per population.
 
 select
-      continent, MAX(cast(Total_deaths as SIGNED)) as TotalDeathCount
+      continent, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From 
-      b9.coviddeaths c
+      projects. .coviddeaths
 Where 
       continent is not null 
 Group by 
        continent
 order by 
        TotalDeathCount desc;
+
       
       
--- GLOBAL NUMBERS.
+-- GLOBAL Total_cases, Total_deaths, DeathPercentage
 
 Select 
-      SUM(new_cases) as total_cases, SUM(cast(new_deaths as SIGNED)) as total_deaths, SUM(cast(new_deaths as SIGNED))/SUM(New_Cases)*100 as DeathPercentage
+      SUM(CAST(new_cases as INT)) as total_cases, 
+      SUM(CAST(new_deaths as INT)) as total_deaths, 
+      SUM(CAST(new_deaths as INT)) * 100.0 / SUM(CAST(new_cases as INT)) as DeathPercentage
 From 
-      b9.coviddeaths c
+      projects. .coviddeaths
 where 
-      continent is not null 
-order by 1,2;
+      continent is not null;
+
 
 
 -- Total Population vs Vaccinations.
