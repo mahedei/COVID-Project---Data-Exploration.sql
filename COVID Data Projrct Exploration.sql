@@ -151,26 +151,29 @@ order by 2,3;
 
 
 
--- Using CTE to Calculation on Partition By in previous query.
+-- Calculation on Partition By in previous query.
 -- Shows Percentage of Population that has recieved at least one Covid Vaccine.
 
-With PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
-as
+WITH PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
+AS
 (
-Select c.continent, c.location, c.date, c.population, v.new_vaccinations
-,sum(CAST(v.new_vaccinations AS SIGNED)) over (partition by c.location order by c.location,c.date) as RollingPeopleVaccinated
-from 
-    b9.coviddeaths as c 
-join
-    b9.covidvaccinations as v
-    on c.location = v.location 
-    and c.date = v.date
-where 
-      c.continent is not null
-order by 2,3
+    SELECT
+        dea.continent,
+        dea.location,
+        dea.date,
+        dea.population,
+        vac.new_vaccinations,
+        SUM(CONVERT(BIGINT, vac.new_vaccinations)) OVER (PARTITION BY dea.Location ORDER BY dea.location, dea.Date) as RollingPeopleVaccinated
+    FROM Project. .CovidDeaths dea
+    JOIN Project. .CovidVaccinations vac
+    ON dea.location = vac.location
+    AND dea.date = vac.date
+    WHERE dea.continent IS NOT NULL
 )
-Select *, (RollingPeopleVaccinated/Population)*100
-From PopvsVac;
+SELECT *,
+    (RollingPeopleVaccinated * 100.0 / Population) as PercentVaccinated
+FROM PopvsVac;
+
 
 
 
