@@ -35,7 +35,7 @@ order by 1,2;
 
 
 
--- Total Cases vs Total Deaths
+-- Total Cases vs Total Deaths and DeathPercentage
 
 SELECT
     Location,
