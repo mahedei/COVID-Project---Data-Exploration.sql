@@ -1,8 +1,10 @@
 # COVID-Project--Data-Exploration.sql
+# Data Cleaning Project Queries.sql
+# TMDB_movies_query.sql
 
 
 # Skills are used here:
-- COVID Data Project Exploration.sql : 
+- COVID/TMDB_movies Data Project Exploration.sql : 
   Joins, Windows Functions, Aggregate Functions, Converting Data Types.
 
 - Data Cleaning Project Queries.sql : 
@@ -15,7 +17,7 @@
 - [Data Cleaning Project Queries.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/Data%20Cleaning%20Project%20Queries.sql)
 - [NashvilleHousing .xls](https://github.com/mahedei/Portfolio-Projects/blob/main/NashvilleHousing%20.xls)
 - [TablueProjectQueries.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/TablueProjectQueries.sql)
-
+- [TMDB_movies_query.sql](https://github.com/mahedei/Portfolio-Projects/blob/main/TMDB_movies_query.sql)
 
 # Connect With ME
 [Linkdin](https://www.linkedin.com/in/mahedi-hasan-391793204/)
